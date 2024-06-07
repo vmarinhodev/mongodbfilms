@@ -16,7 +16,7 @@ interface TopProps {
 export default function Top({ movies }: TopProps) {
     return (
         <div>
-           <h1>Top 1000 Movies of All Time</h1>
+           <h1>Top 100 Movies of All Time</h1>
            <p>
                <small>(According to Metacritic)</small>
            </p>
@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<TopProps> = async () => {
             .collection("movies")
             .find({})
             .sort({ metacritic: -1 })
-            .limit(1000)
+            .limit(100)
             .toArray();
 
         return {
